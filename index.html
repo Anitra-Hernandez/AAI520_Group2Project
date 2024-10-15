@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAI_520 Chatbot</title>
+    <title>AAI-520 Chatbot</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #282c34;
-            color: white;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,90 +22,89 @@
             padding: 20px;
             background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
             color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         .chat-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             flex-grow: 1;
             padding: 20px;
         }
         .chat-box {
-            width: 60%;
+            width: 70%;
             height: 60%;
-            border: none;
-            background-color: #ffffff;
+            background-color: white;
             padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            color: black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
             margin-bottom: 20px;
         }
+        .typing-indicator {
+            color: #999;
+            font-style: italic;
+            display: none;
+        }
         input[type="text"] {
-            width: 75%;
+            width: 70%;
             padding: 15px;
             font-size: 1.2em;
-            border: none;
-            border-radius: 10px;
-            outline: none;
+            border-radius: 5px;
             margin-right: 10px;
+            border: 1px solid #ccc;
         }
         button {
             padding: 15px 30px;
             font-size: 1.2em;
-            border: none;
             background-color: #1CB5E0;
             color: white;
-            border-radius: 10px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
         button:hover {
             background-color: #000851;
         }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1CB5E0;
+            color: white;
+        }
         .user-message {
             background-color: #1CB5E0;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin: 10px;
             text-align: right;
-            align-self: flex-end;
             color: white;
         }
         .bot-message {
             background-color: #000851;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 5px;
             margin: 10px;
             text-align: left;
-            align-self: flex-start;
             color: white;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1CB5E0;
-            color: white;
-            border-radius: 0 0 20px 20px;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>Welcome to the AAI:520 Chatbot Team-7</header>
+    <header>Welcome to the AAI-520 Chatbot Team 2</header>
 
     <div class="chat-container">
-        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-box" id="chat-box">
+            <div class="typing-indicator" id="typing-indicator">Bot is typing...</div>
+        </div>
         <div>
             <input type="text" id="user-input" placeholder="Type your message here..." onkeydown="checkEnter(event)">
             <button id="send-btn" onclick="sendMessage()">Send</button>
+            <button id="reset-btn" onclick="resetChat()">Reset</button> 
         </div>
     </div>
 
-    <footer>@Fall-2024 built by Team-7</footer>
+    <footer>@Fall-2024 Group-2 Project</footer>
 
     <script>
         // Initial greeting when the page loads
@@ -130,7 +127,7 @@
         // Function to handle sending a message
         function sendMessage() {
             var userInput = document.getElementById("user-input").value.trim();
-            if (!userInput) return;  // Ignore empty input
+            if (!userInput) return;
 
             var chatBox = document.getElementById("chat-box");
 
@@ -142,6 +139,10 @@
 
             // Clear the input field
             document.getElementById("user-input").value = "";
+
+            // Show the typing indicator
+            var typingIndicator = document.getElementById("typing-indicator");
+            typingIndicator.style.display = "block";
 
             // Send the message to the server and get the bot's response
             var xhr = new XMLHttpRequest();
@@ -155,6 +156,9 @@
                     botMessage.classList.add("bot-message");
                     chatBox.appendChild(botMessage);
                     chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the bottom of the chat box
+
+                    // Hide the typing indicator
+                    typingIndicator.style.display = "none";
 
                     // Disable input if the bot says goodbye (conversation ended)
                     if (botResponse.stop) {
@@ -171,6 +175,19 @@
             if (event.key === "Enter") {
                 sendMessage();
             }
+        }
+
+        // Function to reset the chat
+        function resetChat() {
+            var chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML = '';  // Clear the chat history
+
+            // Enable input fields
+            document.getElementById("user-input").disabled = false;
+            document.getElementById("send-btn").disabled = false;
+
+            // Reload the page or trigger a new conversation
+            window.onload();
         }
     </script>
 </body>
