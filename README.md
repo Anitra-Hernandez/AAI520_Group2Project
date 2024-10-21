@@ -17,7 +17,7 @@ cd AAI520_Group2Project
 
 ### 2. Install the required Python libraries:
 
-pip install torch transformers nltk
+pip install torch transformers nltk os scikit-learn tqdm
 
 ### 3. Download the Cornell Movie Dialogues dataset and place the files (movie_lines.txt and movie_conversations.txt) in a dataset/ directory.
 
@@ -26,6 +26,7 @@ pip install torch transformers nltk
 python app.py
 
 ### 5. Usage
+
 Once the setup is complete, you can start interacting with the chatbot through a command-line interface. Simply run app.py, and the chatbot will begin responding to your inputs.
 
 Example usage:
@@ -48,10 +49,39 @@ The goal of this project is to design, implement, and evaluate a chatbot that ca
 - Provide responses through a user-friendly interface
 
 ## Partners/Contributers
+Mohammad Alkhawaldeh - https://www.linkedin.com/in/mohammad-alkhawaldeh/
+Anitra Hernandez - https://www.linkedin.com/in/anitra-jocelyn-hernandez-csm-cspo-b3416188/
+Peter Ogunrinde - https://www.linkedin.com/in/pogunrinde/
 
 ## Methods Used
+Natural Language Processing (NLP):
+-Tokenization: Using the GPT-2 tokenizer to break down text into tokens.
+-Text Preprocessing: Preprocessing dialogues by cleaning and structuring the conversation into a format suitable for training.
+Generative Modeling:
+-GPT-2 Fine-Tuning: The chatbot is fine-tuned using GPT-2 (medium), a transformer-based model, to generate responses based on dialogue history.
+Sequence Modeling:
+-Multi-turn conversations: Managing multi-turn conversations by feeding a context of previous exchanges (up to 5 utterances) into the model to generate context-aware responses.
+Content Filtering:
+-Regular Expression (Regex) Filtering: Using regex to identify and filter out harmful, offensive, or inappropriate content from both user inputs and chatbot responses.
+Evaluation Metrics:
+-Perplexity: Used to evaluate the fluency and predictability of the chatbot’s language generation.
+-BLEU Score: A metric to evaluate how closely the chatbot's generated responses match the reference dialogues.
+Data Splitting:
+-Train/Validation/Test Split: Using train_test_split from Scikit-learn to split the dataset into training, validation, and test sets (80/20 split for training and test, further split validation from training).
+Training Optimization:
+-AdamW Optimizer: Used to optimize the model’s weights during training.
+-Learning Rate Scheduling: Implemented with linear warmup using the get_linear_schedule_with_warmup method to adjust the learning rate during training.
 
 ## Technologies
+Python
+Jupyter Notebook
+Github
+PyTorch (torch)
+Hugging Face Transformers (transformers)
+Natural Language Toolkit (nltk)
+Scikit-learn (sklearn)
+TQDM (tqdm)
+Regular Expressions (re)
 
 # Project Description
 
@@ -103,8 +133,10 @@ We implemented content filtering to ensure that the chatbot avoids generating ha
 
 # License
 
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 # Acknowledgments
+
 We would like to thank:
 
 - Professor Kahila Mokhtari Jahid and The University of San Diego for providing this course.
