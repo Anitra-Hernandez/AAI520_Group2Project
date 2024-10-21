@@ -49,44 +49,44 @@ The goal of this project is to design, implement, and evaluate a chatbot that ca
 - Provide responses through a user-friendly interface
 
 ## Partners/Contributers
-Mohammad Alkhawaldeh - https://www.linkedin.com/in/mohammad-alkhawaldeh/
-Anitra Hernandez - https://www.linkedin.com/in/anitra-jocelyn-hernandez-csm-cspo-b3416188/
-Peter Ogunrinde - https://www.linkedin.com/in/pogunrinde/
+- Mohammad Alkhawaldeh - https://www.linkedin.com/in/mohammad-alkhawaldeh/
+- Anitra Hernandez - https://www.linkedin.com/in/anitra-jocelyn-hernandez-csm-cspo-b3416188/
+- Peter Ogunrinde - https://www.linkedin.com/in/pogunrinde/
 
 ## Methods Used
 Natural Language Processing (NLP):
--Tokenization: Using the GPT-2 tokenizer to break down text into tokens.
--Text Preprocessing: Preprocessing dialogues by cleaning and structuring the conversation into a format suitable for training.
+- Tokenization: Using the GPT-2 tokenizer to break down text into tokens.
+- Text Preprocessing: Preprocessing dialogues by cleaning and structuring the conversation into a format suitable for training.
+
 Generative Modeling:
--GPT-2 Fine-Tuning: The chatbot is fine-tuned using GPT-2 (medium), a transformer-based model, to generate responses based on dialogue history.
+ -GPT-2 Fine-Tuning: The chatbot is fine-tuned using GPT-2 (medium), a transformer-based model, to generate responses based on dialogue history.
+
 Sequence Modeling:
--Multi-turn conversations: Managing multi-turn conversations by feeding a context of previous exchanges (up to 5 utterances) into the model to generate context-aware responses.
+- Multi-turn conversations: Managing multi-turn conversations by feeding a context of previous exchanges (up to 5 utterances) into the model to generate context-aware responses.
+
 Content Filtering:
--Regular Expression (Regex) Filtering: Using regex to identify and filter out harmful, offensive, or inappropriate content from both user inputs and chatbot responses.
+ -Regular Expression (Regex) Filtering: Using regex to identify and filter out harmful, offensive, or inappropriate content from both user inputs and chatbot responses.
+
 Evaluation Metrics:
--Perplexity: Used to evaluate the fluency and predictability of the chatbot’s language generation.
--BLEU Score: A metric to evaluate how closely the chatbot's generated responses match the reference dialogues.
+- Perplexity: Used to evaluate the fluency and predictability of the chatbot’s language generation.
+- BLEU Score: A metric to evaluate how closely the chatbot's generated responses match the reference dialogues.
+
 Data Splitting:
--Train/Validation/Test Split: Using train_test_split from Scikit-learn to split the dataset into training, validation, and test sets (80/20 split for training and test, further split validation from training).
+- Train/Validation/Test Split: Using train_test_split from Scikit-learn to split the dataset into training, validation, and test sets (80/20 split for training and test, further split validation from training).
+
 Training Optimization:
--AdamW Optimizer: Used to optimize the model’s weights during training.
--Learning Rate Scheduling: Implemented with linear warmup using the get_linear_schedule_with_warmup method to adjust the learning rate during training.
+- AdamW Optimizer: Used to optimize the model’s weights during training.
+- Learning Rate Scheduling: Implemented with linear warmup using the get_linear_schedule_with_warmup method to adjust the learning rate during training.
 
 ## Technologies
-Python
-Jupyter Notebook
-Github
-PyTorch (torch)
-Hugging Face Transformers (transformers)
-Natural Language Toolkit (nltk)
-Scikit-learn (sklearn)
-TQDM (tqdm)
-Regular Expressions (re)
+- Python
+- Jupyter Notebook
+- Github
 
 # Project Description
 
 ## Dataset
-We use the Cornell Movie Dialogues Corpus to train the chatbot. This dataset includes over 220,000 conversational exchanges between characters from 617 movies, providing a diverse set of dialogue patterns for the chatbot to learn from.
+We used the Cornell Movie Dialogues Corpus to train the chatbot. This dataset includes over 220,000 conversational exchanges between characters from 617 movies, providing a diverse set of dialogue patterns for the chatbot to learn from.
 
 ### Preprocessing Steps:
 - Tokenization: Used the GPT-2 tokenizer to preprocess the movie dialogues.
@@ -108,16 +108,16 @@ The GPT-2 model was fine-tuned on the Cornell Movie Dialogues Corpus for 3 epoch
 - Evaluation Metric: Perplexity and BLEU scores
 
 ### Evaluation Metrics
--Perplexity: A lower perplexity indicates that the model predicts the next word in a sequence with more certainty.
--BLEU Score: We used the BLEU metric to evaluate the quality of responses by comparing them to reference dialogues.
+- Perplexity: A lower perplexity indicates that the model predicts the next word in a sequence with more certainty.
+- BLEU Score: We used the BLEU metric to evaluate the quality of responses by comparing them to reference dialogues.
 
 ## Results
 ### Validation Reuslts: 
-- Perplexity: Achieved a validation perplexity of 18.7, indicating relatively fluent and coherent text generation.
-- BLEU Score: Achieved an average BLEU score of 0.34, showing a reasonable match between generated and reference responses.
+- Perplexity: Achieved a validation perplexity of 11.5412, indicating relatively fluent and coherent text generation.
+- BLEU Score: Achieved an average BLEU score of 0.0123, indicating a poor match between generated and reference responses.
 
 ### Test Results:
-- Perplexity on Test Set: 19.2
+- Perplexity on Test Set: 11.4023
 
 ## Content Filtering
 We implemented content filtering to ensure that the chatbot avoids generating harmful, inappropriate, or offensive content. The filtering is regex-based, targeting patterns related to profanity, explicit content, and violence.
