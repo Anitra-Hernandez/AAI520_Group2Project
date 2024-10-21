@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAI-520 Chatbot</title>
+
+    <!-- Google Fonts for a more modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap for layout -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header class="bg-gradient text-white text-center py-3 shadow-sm">
+		<h1>
+			<img src="https://d24hrkfl5wrd0k.cloudfront.net/uploads/2020/03/chatbot.png" alt="Chatbot" class="header-icon">
+			AAI-520 Chatbot
+		</h1>
+    </header>
+
+    <div class="container chat-container mt-5 shadow-lg">
+        <div class="chat-box" id="chat-box">
+            <div class="typing-indicator" id="typing-indicator">Bot is typing...</div>
+        </div>
+        <div class="input-area">
+            <div class="input-group mt-3">
+                <input type="text" id="user-input" class="form-control rounded-left" placeholder="Type your message here..." onkeydown="checkEnter(event)">
+                <div class="input-group-append">
+                    <button id="send-btn" class="btn btn-primary rounded-right" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                    <button id="reset-btn" class="btn btn-secondary ml-2" onclick="resetChat()">
+                        <i class="fas fa-sync-alt"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient text-white text-center py-2">
+        © 2024 AAI-520 Chatbot, Team 2. All rights reserved.
+    </footer>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
