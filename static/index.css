@@ -1,0 +1,149 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+	
+
+}
+
+header.bg-gradient {
+    background: linear-gradient(135deg, #192549, #135f74);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon {
+    width: 40px;  /* Adjust width as needed */
+    height: auto;
+    margin-right: 10px;  /* Space between the image and the text */
+}
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 65%; 
+    margin: 0 auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 220px); 
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Optional pattern background */
+    background-size: cover;
+}
+
+.chat-box {
+    flex-grow: 1;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.typing-indicator {
+    color: #999;
+    font-style: italic;
+    display: none;
+}
+
+.user-message {
+    background-color: #267f9e;
+    color: white;
+    padding: 12px;
+    border-radius: 20px 20px 0 20px;
+    margin: 10px 0;
+    text-align: right;
+    max-width: 70%;
+    align-self: flex-end;
+    word-wrap: break-word;
+    float: right;
+    clear: both;
+}
+
+.bot-message {
+    background-color: #30465c;
+    color: white;
+    padding: 12px;
+    border-radius: 20px 20px 20px 0;
+    margin: 10px 0;
+    max-width: 70%;
+    text-align: left;
+    align-self: flex-start;
+    word-wrap: break-word;
+    float: left;
+    clear: both;
+}
+
+/* Input area should stay fixed to the bottom */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+input#user-input {
+    font-size: 1rem;
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+button.btn-primary {
+    background: #054c43;  /* Dark green base color */
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+button.btn-primary:hover {
+    background: #046056;  /* Lighter shade of green for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+}
+
+/* Secondary Button */
+button.btn-secondary {
+    border-radius: 30px;
+    padding: 10px 20px;
+    background-color: #6c757d;  /* Muted grey */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.btn-secondary:hover {
+    background-color: #565e64;  /* Slightly darker grey for hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow increase on hover */
+}
+
+footer.bg-gradient {
+    background: linear-gradient(135deg, #192549, #135f74);
+    color: white;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
